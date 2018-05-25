@@ -3,8 +3,11 @@
 namespace App\Mailers;
 
 
+use App\Comment;
 use App\Ticket;
+use App\User;
 use Illuminate\Contracts\Mail\Mailer;
+use Illuminate\Database\Eloquent\Builder;
 
 class AppMailer
 {
@@ -16,6 +19,10 @@ class AppMailer
     protected $view;
     protected $data = [];
 
+    /**
+     * AppMailer constructor.
+     * @param Mailer $mailer
+     */
     public function __construct(Mailer $mailer)
     {
         $this->fromAddress = env('MAIL_FROM_ADDRESS');
@@ -23,7 +30,11 @@ class AppMailer
         $this->mailer = $mailer;
     }
 
-    public function sendTicketInformations($user, Ticket $ticket)
+    /**
+     * @param User $user
+     * @param Builder|Ticket $ticket
+     */
+    public function sendTicketInformations($user, $ticket)
     {
         $this->to = $user->email;
         $this->subject = "[Support Ticket #{$ticket->ticket_id}] {$ticket->title}";
@@ -32,7 +43,13 @@ class AppMailer
         $this->deliver();
     }
 
-    public function sendTicketComments($ticketOwner, $user, Ticket $ticket, $comment)
+    /**
+     * @param User $ticketOwner
+     * @param User $user
+     * @param Ticket $ticket
+     * @param Comment $comment
+     */
+    public function sendTicketComments(User $ticketOwner, User $user, $ticket, Comment $comment)
     {
         $this->to = $ticketOwner->email;
         $this->subject = "RE: {$ticket->title} (Ticket #{$ticket->ticket_id})";
@@ -41,7 +58,11 @@ class AppMailer
         $this->deliver();
     }
 
-    public function sendTicketStatusNotification($ticketOwner, Ticket $ticket)
+    /**
+     * @param User $ticketOwner
+     * @param Ticket|Builder $ticket
+     */
+    public function sendTicketStatusNotification(User $ticketOwner, $ticket)
     {
         $this->to = $ticketOwner->email;
         $this->subject = "RE: {$ticket->title} (Ticket #{$ticket->ticket_id})";
