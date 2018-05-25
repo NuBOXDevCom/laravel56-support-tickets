@@ -2,6 +2,10 @@
 
 A ticket system to manage support with Laravel 5.6
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/NuBOXDevCom/laravel56-support-tickets/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/NuBOXDevCom/laravel56-support-tickets/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/NuBOXDevCom/laravel56-support-tickets/badges/build.png?b=master)](https://scrutinizer-ci.com/g/NuBOXDevCom/laravel56-support-tickets/build-status/master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/NuBOXDevCom/laravel56-support-tickets/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
