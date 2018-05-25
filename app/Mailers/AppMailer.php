@@ -32,7 +32,7 @@ class AppMailer
 
     /**
      * @param User $user
-     * @param Builder|Ticket $ticket
+     * @param Ticket $ticket
      */
     public function sendTicketInformations($user, $ticket)
     {
@@ -60,7 +60,7 @@ class AppMailer
 
     /**
      * @param User $ticketOwner
-     * @param Ticket|Builder $ticket
+     * @param Ticket $ticket
      */
     public function sendTicketStatusNotification(User $ticketOwner, $ticket)
     {

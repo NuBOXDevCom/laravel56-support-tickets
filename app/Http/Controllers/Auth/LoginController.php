@@ -20,7 +20,7 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    protected $maxAttemps = 3;
+    protected $maxAttempts = 3;
     protected $decayMinutes = 30;
 
     /**
