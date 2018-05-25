@@ -81,6 +81,7 @@ class TicketsController extends Controller
 
     public function close($ticket_id, AppMailer $mailer)
     {
+        /** @var Ticket $ticket */
         $ticket = Ticket::where('ticket_id', $ticket_id)->findOrFails();
         $ticket->status = 'Closed';
         $ticket->save();

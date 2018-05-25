@@ -20,6 +20,8 @@ class ResetPasswordController extends Controller
 
     use ResetsPasswords;
 
+    protected $email = '';
+
     /**
      * Where to redirect users after resetting their password.
      *
