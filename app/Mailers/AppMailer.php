@@ -17,7 +17,7 @@ class AppMailer
     protected $to;
     protected $subject;
     protected $view;
-    protected $data = [];
+    protected $data = [ ];
 
     /**
      * AppMailer constructor.
@@ -73,7 +73,7 @@ class AppMailer
 
     public function deliver()
     {
-        $this->mailer->send($this->view, $this->data, function ($message) {
+        $this->mailer->send($this->view, $this->data, function($message) {
             $message->from($this->fromAddress, $this->fromName)
                 ->to($this->to)
                 ->subject($this->subject);
